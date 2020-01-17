@@ -3,16 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0",
+    "@assemblyscript/loader": "^0.8.1"
   },
   "scripts": {
     "jsstart": "react-scripts start",
     "jsbuild": "react-scripts build",
     "asbuild": "asc assembly/index.ts -b public/as-api.wasm",
     "start": "npm run asbuild && npm run jsstart",
-    "build": "npm run asbuild && npm run jsbuild"
+    "build": "npm run asbuild && npm run jsbuild",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "asbuild:untouched": "./node_modules/.bin/asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize"
+  
   },
   "eslintConfig": {
     "extends": "react-app"
